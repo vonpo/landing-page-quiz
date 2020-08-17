@@ -13,12 +13,12 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   imageContainer: {
-    width: 400,
+    maxWidth: 400,
     height: 480,
     position: "relative",
   },
   descriptionContainer: {
-    width: 400,
+    maxWidth: 400,
     padding: "162px 0 0 80px",
     [theme.breakpoints.down("xs")]: {
       padding: "40px 0 40px 40px",
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     top: 25,
     [theme.breakpoints.down("xs")]: {
       top: -332,
-      left: -215,
+      left: -15,
     },
   },
 }));
@@ -67,9 +67,10 @@ export const SectionWithImage: FunctionComponent<{
       container
       direction={alternativeRow ? "row-reverse" : "row"}
       justify="center"
+      alignItems="center"
       className={styles.sectionContainer}
     >
-      <Grid className={styles.imageContainer}>
+      <Grid className={styles.imageContainer} item xs={12} sm={6}>
         <img src={imagePath} />
         <Grid
           className={`${styles.index} ${
@@ -81,6 +82,9 @@ export const SectionWithImage: FunctionComponent<{
       </Grid>
 
       <Grid
+        item
+        sm={6}
+        xs={12}
         className={`${styles.descriptionContainer} ${
           alternativeRow && styles.descriptionContainerAlternative
         }`}

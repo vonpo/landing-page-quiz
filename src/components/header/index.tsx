@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
 
 export const Header: FunctionComponent = () => {
   const styles = useStyles();
-  const [isQuizOpen, setQuizOpen] = useState<boolean>(true);
+  const [isQuizOpen, setQuizOpen] = useState<boolean>(false);
   const [questions, setQuestions] = useState<QuizQuestionType[]>([]);
   const { t } = useTranslation("header");
 
