@@ -94,36 +94,39 @@ export const Header: FunctionComponent = () => {
           {t("quizButton")}
         </Button>
       </Grid>
-      <Dialog open={isQuizOpen} fullScreen>
-        <AppBar className={styles.appBar}>
-          <Toolbar>
-            <Grid
-              container
-              direction="row"
-              justify="space-between"
-              alignItems="center"
-            >
-              <Typography variant="h3">{t("takeTheQuiz")}</Typography>
-              <IconButton
-                edge="start"
-                color="inherit"
-                onClick={() => setQuizOpen(false)}
-                aria-label="close"
+      <QuizContext.Provider value={quizContext}>
+        <Dialog
+          open={isQuizOpen}
+          fullScreen
+          onExited={() => quizContext.reset()}
+        >
+          <AppBar className={styles.appBar}>
+            <Toolbar>
+              <Grid
+                container
+                direction="row"
+                justify="space-between"
+                alignItems="center"
               >
-                <CloseIcon />
-              </IconButton>
-            </Grid>
-          </Toolbar>
-        </AppBar>
-        <QuizContext.Provider value={quizContext}>
+                <Typography variant="subtitle2">{t("takeTheQuiz")}</Typography>
+                <IconButton
+                  edge="start"
+                  color="inherit"
+                  onClick={() => setQuizOpen(false)}
+                  aria-label="close"
+                >
+                  <CloseIcon />
+                </IconButton>
+              </Grid>
+            </Toolbar>
+          </AppBar>
           <Quiz
-            onClose={() => setQuizOpen(false)}
             renderSummary={({ questions, answers }) => (
               <Summary questions={questions} answers={answers} />
             )}
           />
-        </QuizContext.Provider>
-      </Dialog>
+        </Dialog>
+      </QuizContext.Provider>
     </header>
   );
 };

@@ -60,6 +60,13 @@ export const lightTheme = createMuiTheme({
         letterSpacing: 0,
         fontFamily: "Helvetica",
       },
+      subtitle2: {
+        fontSize: "22px",
+        lineHeight: "32px",
+        letterSpacing: 0,
+        fontFamily: "Montserrat",
+        color: "#fff",
+      },
       body1: {
         fontSize: "14px",
         lineHeight: "36px",

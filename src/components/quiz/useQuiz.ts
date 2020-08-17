@@ -35,6 +35,10 @@ export const useQuiz = ({
     quizLength: 0,
   });
 
+  const reset = () => {
+    setActiveStep(0);
+    setAnswers({});
+  };
   const goNext = () => state.canGoNext && setActiveStep(activeStep + 1);
   const goBack = () => state.canGoBack && setActiveStep(activeStep - 1);
   const setAnswer = (value: string | boolean) => {
@@ -69,6 +73,7 @@ export const useQuiz = ({
     setAnswer,
     goNext,
     goBack,
+    reset,
     questions: quizQuestions,
     answers,
   };
@@ -85,10 +90,12 @@ export const QuizContext = createContext<{
   activeStep: number;
   goNext: () => any;
   goBack: () => any;
+  reset: () => any;
   setAnswer: (value: string) => any;
 }>({
   answers: undefined,
   questions: [],
+  reset: () => {},
   goNext: () => {},
   goBack: () => {},
   setAnswer: (_: string) => {},
