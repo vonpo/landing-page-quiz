@@ -1,7 +1,10 @@
 {
+  "rules": {
+    "no-submodule-imports": false,
+    "no-duplicate-imports": false
+  },
   "extends": [
     "tslint:latest",
-    "tslint-config-prettier",
-    "plugin:react-hooks/recommended"
+    "tslint-config-prettier"
   ]
 }

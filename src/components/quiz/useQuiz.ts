@@ -95,10 +95,18 @@ export const QuizContext = createContext<{
 }>({
   answers: undefined,
   questions: [],
-  reset: () => {},
-  goNext: () => {},
-  goBack: () => {},
-  setAnswer: (_: string) => {},
+  reset: () => {
+    return;
+  },
+  goNext: () => {
+    return;
+  },
+  goBack: () => {
+    return;
+  },
+  setAnswer: (_: string) => {
+    return;
+  },
   activeStep: 0,
   canGoBack: false,
   canGoNext: false,

@@ -136,10 +136,10 @@ export const Header: FunctionComponent = () => {
             </Toolbar>
           </AppBar>
           <Quiz
-            renderSummary={({ questions, answers }) => (
+            renderSummary={(summary) => (
               <Summary
-                questions={questions}
-                answers={answers}
+                questions={summary.questions}
+                answers={summary.answers}
                 onConfirm={() => setQuizOpen(false)}
               />
             )}
