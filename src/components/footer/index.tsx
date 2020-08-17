@@ -14,8 +14,9 @@ const useStyles = makeStyles((theme) => ({
     minHeight: 396,
     backgroundColor: "#e5f5f4",
     padding: "78px 40px 27px 40px",
-    [theme.breakpoints.down("md")]: {
-      padding: "78px 10px 27px 10px",
+    [theme.breakpoints.down("xs")]: {
+      paddingLeft: "20px",
+      paddingRight: "20px",
     },
   },
   line: {

@@ -23,13 +23,19 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: theme.spacing(10),
     minHeight: 680,
     background: `url(${Image}) bottom right no-repeat #b8e6e3`,
+    [theme.breakpoints.down("xs")]: {
+      paddingLeft: "20px",
+      paddingRight: "20px",
+    },
     [theme.breakpoints.down("sm")]: {
       minHeight: 1080,
-      padding: "0 10px",
     },
   },
   responsiveHeader: {
     [theme.breakpoints.down("sm")]: {
+      fontSize: 62,
+    },
+    [theme.breakpoints.down("xs")]: {
       fontSize: 42,
     },
   },
@@ -37,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     height: 172,
     padding: "40px 0 0 10px",
     [theme.breakpoints.down("sm")]: {
-      height: 86,
+      height: 172,
     },
   },
   content: {
