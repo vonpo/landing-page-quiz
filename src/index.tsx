@@ -8,6 +8,7 @@ import { ThemeProvider } from "@material-ui/core/styles";
 import { lightTheme } from "./theme";
 import { MainContent } from "./main-content";
 
+// tslint:disable-next-line:no-var-requires
 require("./i18n");
 
 const App: FunctionComponent = () => {

@@ -11,6 +11,7 @@ import Section2 from "../assets/section2/sex-photo-1-2-x.png";
 const useStyles = makeStyles((theme) => ({
   sectionHeader: {
     marginTop: theme.spacing(10),
+    padding: "0 10px",
   },
 }));
 

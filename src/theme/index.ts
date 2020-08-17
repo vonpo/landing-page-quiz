@@ -1,12 +1,33 @@
 import { createMuiTheme } from "@material-ui/core/styles";
 import "./assets/style.less";
 
-const primaryColor = "#34d1d1";
-const secondaryColor = "rgba(108, 108, 108, 0.5)";
 /**
  * Spec https://app.zeplin.io/project/5c584668b74a4430819e5056/styleguide/textstyles
  */
+
+const primaryColor = "#34d1d1";
+const secondaryColor = "rgba(108, 108, 108, 0.5)";
+
+declare module "@material-ui/core/styles/createBreakpoints" {
+  interface BreakpointOverrides {
+    xs: true;
+    sm: true;
+    md: true;
+    lg: true;
+    xl: true;
+  }
+}
+
 export const lightTheme = createMuiTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 800, // redefine small breakpoints as 800px is size when we need to change from row to column <SectionWithImage>
+      md: 960,
+      lg: 1280,
+      xl: 1920,
+    },
+  },
   palette: {
     primary: {
       main: primaryColor,
@@ -16,6 +37,11 @@ export const lightTheme = createMuiTheme({
     },
   },
   overrides: {
+    MuiToolbar: {
+      root: {
+        color: "#fff",
+      },
+    },
     MuiTypography: {
       root: {
         color: "#0c3c3d",

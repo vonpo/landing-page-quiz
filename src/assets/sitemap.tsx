@@ -1,3 +1,4 @@
+// Static site map.
 export const sitemapItems = [
   {
     name: "product",

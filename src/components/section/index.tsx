@@ -19,16 +19,18 @@ const useStyles = makeStyles((theme) => ({
   },
   descriptionContainer: {
     maxWidth: 400,
+    minHeight: 400,
+
     padding: "162px 0 0 80px",
     [theme.breakpoints.down("xs")]: {
-      padding: "40px 0 40px 40px",
+      padding: "20px 0 20px 20px",
     },
   },
   descriptionContainerAlternative: {
     padding: "162px 80px 0 0",
     textAlign: "right",
     [theme.breakpoints.down("xs")]: {
-      padding: "40px 80px 40px 0",
+      padding: "20px 60px 20px 0",
     },
   },
   index: {
@@ -49,8 +51,8 @@ const useStyles = makeStyles((theme) => ({
     left: -451,
     top: 25,
     [theme.breakpoints.down("xs")]: {
-      top: -332,
-      left: -215,
+      top: -360,
+      left: -100,
     },
   },
 }));
@@ -70,7 +72,7 @@ export const SectionWithImage: FunctionComponent<{
       alignItems="center"
       className={styles.sectionContainer}
     >
-      <Grid className={styles.imageContainer} item xs={6}>
+      <Grid className={styles.imageContainer} item xs={12} sm={6}>
         <img src={imagePath} />
         <Grid
           className={`${styles.index} ${
@@ -80,9 +82,11 @@ export const SectionWithImage: FunctionComponent<{
           0{index}
         </Grid>
       </Grid>
+
       <Grid
-        xs={6}
         item
+        sm={6}
+        xs={12}
         className={`${styles.descriptionContainer} ${
           alternativeRow && styles.descriptionContainerAlternative
         }`}

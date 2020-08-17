@@ -63,6 +63,8 @@ export const QUIZ_QUESTIONS = {
 
 /**
  * Normalize question option.
+ * This structure is bit nasty as we hold img as object key.
+ * This could be vulnerable to XSS.
  *
  * @param option
  */

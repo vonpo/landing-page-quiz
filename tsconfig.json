@@ -1,10 +1,6 @@
 {
   "compilerOptions": {
     "baseUrl": "./",
-    "paths": {
-      "settingsStore": ["src/store/settings"],
-      "chatStore": ["src/store/chat"]
-    },
     "moduleResolution": "node",
     "outDir": "./public/",
     "sourceMap": true,

@@ -13,7 +13,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import { Quiz } from "../quiz";
-import { Answers, QuizQuestionType } from "../quiz/types";
+import { QuizQuestionType } from "../quiz/types";
 import { loadQuestions } from "../../assets/quiz";
 import { QuizContext, useQuiz } from "../quiz/useQuiz";
 import { Summary } from "./summary";
@@ -23,19 +23,28 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: theme.spacing(10),
     minHeight: 680,
     background: `url(${Image}) bottom right no-repeat #b8e6e3`,
+    [theme.breakpoints.down("xs")]: {
+      paddingLeft: "20px",
+      paddingRight: "20px",
+    },
     [theme.breakpoints.down("sm")]: {
       minHeight: 1080,
-      padding: "0 10px",
     },
   },
   responsiveHeader: {
     [theme.breakpoints.down("sm")]: {
+      fontSize: 62,
+    },
+    [theme.breakpoints.down("xs")]: {
       fontSize: 42,
     },
   },
   logoContainer: {
     height: 172,
     padding: "40px 0 0 10px",
+    [theme.breakpoints.down("sm")]: {
+      height: 120,
+    },
   },
   content: {
     maxWidth: 620,
@@ -49,9 +58,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+/**
+ * Renders page header.
+ * Has quiz button and Quiz component.
+ *
+ * @constructor
+ */
 export const Header: FunctionComponent = () => {
   const styles = useStyles();
-  const [isQuizOpen, setQuizOpen] = useState<boolean>(true);
+  const [isQuizOpen, setQuizOpen] = useState<boolean>(false);
   const [questions, setQuestions] = useState<QuizQuestionType[]>([]);
   const { t } = useTranslation("header");
 
@@ -121,10 +136,10 @@ export const Header: FunctionComponent = () => {
             </Toolbar>
           </AppBar>
           <Quiz
-            renderSummary={({ questions, answers }) => (
+            renderSummary={(summary) => (
               <Summary
-                questions={questions}
-                answers={answers}
+                questions={summary.questions}
+                answers={summary.answers}
                 onConfirm={() => setQuizOpen(false)}
               />
             )}
