@@ -122,7 +122,11 @@ export const Header: FunctionComponent = () => {
           </AppBar>
           <Quiz
             renderSummary={({ questions, answers }) => (
-              <Summary questions={questions} answers={answers} />
+              <Summary
+                questions={questions}
+                answers={answers}
+                onConfirm={() => setQuizOpen(false)}
+              />
             )}
           />
         </Dialog>
