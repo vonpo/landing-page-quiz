@@ -54,11 +54,23 @@ export const lightTheme = createMuiTheme({
         letterSpacing: "2.4px",
         color: primaryColor,
       },
+      subtitle1: {
+        fontSize: "22px",
+        lineHeight: "32px",
+        letterSpacing: 0,
+        fontFamily: "Helvetica",
+      },
       body1: {
         fontSize: "14px",
         lineHeight: "36px",
         letterSpacing: 0,
         fontFamily: "Helvetica",
+      },
+      body2: {
+        fontSize: "12px",
+        lineHeight: "22px",
+        letterSpacing: 0,
+        fontFamily: "Open Sans",
       },
     },
     MuiButton: {

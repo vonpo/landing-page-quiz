@@ -13,6 +13,9 @@ const useStyles = makeStyles((theme) => ({
   groupName: {
     marginBottom: theme.spacing(1.3),
   },
+  imageContainer: {
+    height: 36,
+  },
   sitemapLink: {
     marginRight: theme.spacing(3.75),
     textDecoration: "none",

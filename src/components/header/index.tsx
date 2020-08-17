@@ -1,5 +1,5 @@
 import * as React from "react";
-import { FunctionComponent, useState } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Image from "./assets/hair-cat-header.png";
 import Grid from "@material-ui/core/Grid";
@@ -8,19 +8,28 @@ import Button from "@material-ui/core/Button";
 import { Logo } from "../logo";
 import Dialog from "@material-ui/core/Dialog";
 import { useTranslation } from "react-i18next";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
+import CloseIcon from "@material-ui/icons/Close";
+import { Quiz } from "../quiz";
+import { Answers, QuizQuestionType } from "../quiz/types";
+import { loadQuestions } from "../../assets/quiz";
+import { QuizContext, useQuiz } from "../quiz/useQuiz";
+import { Summary } from "./summary";
 
 const useStyles = makeStyles((theme) => ({
   header: {
     paddingLeft: theme.spacing(10),
     minHeight: 680,
     background: `url(${Image}) bottom right no-repeat #b8e6e3`,
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("sm")]: {
       minHeight: 1080,
       padding: "0 10px",
     },
   },
   responsiveHeader: {
-    [theme.breakpoints.down("md")]: {
+    [theme.breakpoints.down("sm")]: {
       fontSize: 42,
     },
   },
@@ -31,6 +40,9 @@ const useStyles = makeStyles((theme) => ({
   content: {
     maxWidth: 620,
   },
+  appBar: {
+    position: "relative",
+  },
   description: {
     maxWidth: 400,
     margin: "22px 0 38px 0",
@@ -39,8 +51,21 @@ const useStyles = makeStyles((theme) => ({
 
 export const Header: FunctionComponent = () => {
   const styles = useStyles();
-  const [isQuizOpen, setQuizOpen] = useState<boolean>(false);
+  const [isQuizOpen, setQuizOpen] = useState<boolean>(true);
+  const [questions, setQuestions] = useState<QuizQuestionType[]>([]);
   const { t } = useTranslation("header");
+
+  const quizContext = useQuiz({
+    questions,
+    hasSummaryStep: true,
+  });
+
+  // Simulate load from API.
+  useEffect(() => {
+    (async () => {
+      setQuestions(await loadQuestions());
+    })();
+  }, []);
 
   return (
     <header className={styles.header}>
@@ -70,7 +95,34 @@ export const Header: FunctionComponent = () => {
         </Button>
       </Grid>
       <Dialog open={isQuizOpen} fullScreen>
-        quiz
+        <AppBar className={styles.appBar}>
+          <Toolbar>
+            <Grid
+              container
+              direction="row"
+              justify="space-between"
+              alignItems="center"
+            >
+              <Typography variant="h3">{t("takeTheQuiz")}</Typography>
+              <IconButton
+                edge="start"
+                color="inherit"
+                onClick={() => setQuizOpen(false)}
+                aria-label="close"
+              >
+                <CloseIcon />
+              </IconButton>
+            </Grid>
+          </Toolbar>
+        </AppBar>
+        <QuizContext.Provider value={quizContext}>
+          <Quiz
+            onClose={() => setQuizOpen(false)}
+            renderSummary={({ questions, answers }) => (
+              <Summary questions={questions} answers={answers} />
+            )}
+          />
+        </QuizContext.Provider>
       </Dialog>
     </header>
   );

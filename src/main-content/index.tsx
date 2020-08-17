@@ -25,6 +25,12 @@ const SECTIONS = [
   },
 ];
 
+/**
+ * Main content displays:
+ * - main content header
+ * - info sections with images.
+ * @constructor
+ */
 export const MainContent: FunctionComponent = () => {
   const { t } = useTranslation("section");
   const styles = useStyles();
@@ -39,12 +45,13 @@ export const MainContent: FunctionComponent = () => {
           key={name}
           index={index + 1}
           imagePath={image}
-          alternative={index % 2 === 1}
+          alternativeRow={index % 2 === 1}
         >
           <SectionContent
+            alternativeRow={index % 2 === 1}
             header={t(`${name}.header`)}
             subheader={t(`${name}.subheader`)}
-            description={t(`${name}.descriptionheader`)}
+            description={t(`${name}.description`)}
           />
         </SectionWithImage>
       ))}

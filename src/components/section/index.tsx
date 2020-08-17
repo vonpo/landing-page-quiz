@@ -8,6 +8,9 @@ const useStyles = makeStyles((theme) => ({
   sectionContainer: {
     overflow: "hidden",
     marginTop: theme.spacing(7.5),
+    [theme.breakpoints.down("xs")]: {
+      flexDirection: "column-reverse",
+    },
   },
   imageContainer: {
     width: 400,
@@ -16,7 +19,17 @@ const useStyles = makeStyles((theme) => ({
   },
   descriptionContainer: {
     width: 400,
-    padding: "162px 80px 0 80px",
+    padding: "162px 0 0 80px",
+    [theme.breakpoints.down("xs")]: {
+      padding: "40px 0 40px 40px",
+    },
+  },
+  descriptionContainerAlternative: {
+    padding: "162px 80px 0 0",
+    textAlign: "right",
+    [theme.breakpoints.down("xs")]: {
+      padding: "40px 80px 40px 0",
+    },
   },
   index: {
     color: "#eeeeee",
@@ -27,24 +40,32 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: "Montserrat",
     top: 55,
     left: 267,
+    [theme.breakpoints.down("xs")]: {
+      top: -360,
+      left: -100,
+    },
   },
   indexAlternative: {
     left: -451,
     top: 25,
+    [theme.breakpoints.down("xs")]: {
+      top: -332,
+      left: -215,
+    },
   },
 }));
 
 export const SectionWithImage: FunctionComponent<{
   index: number;
   imagePath: string;
-  alternative?: boolean;
-}> = ({ index, imagePath, children, alternative }) => {
+  alternativeRow: boolean;
+}> = ({ index, imagePath, children, alternativeRow }) => {
   const styles = useStyles();
 
   return (
     <Grid
       container
-      direction={alternative ? "row-reverse" : "row"}
+      direction={alternativeRow ? "row-reverse" : "row"}
       justify="center"
       className={styles.sectionContainer}
     >
@@ -52,28 +73,54 @@ export const SectionWithImage: FunctionComponent<{
         <img src={imagePath} />
         <Grid
           className={`${styles.index} ${
-            alternative ? styles.indexAlternative : ""
+            alternativeRow && styles.indexAlternative
           }`}
         >
           0{index}
         </Grid>
       </Grid>
 
-      <Grid className={styles.descriptionContainer}>{children}</Grid>
+      <Grid
+        className={`${styles.descriptionContainer} ${
+          alternativeRow && styles.descriptionContainerAlternative
+        }`}
+      >
+        {children}
+      </Grid>
     </Grid>
   );
 };
+
+const useContentStyles = makeStyles((theme) => ({
+  subheader: {
+    marginTop: theme.spacing(2),
+    marginBottom: theme.spacing(1.375),
+  },
+  description: {
+    maxWidth: 300,
+  },
+}));
 
 export const SectionContent: FunctionComponent<{
   header: string;
   subheader: string;
   description: string;
-}> = ({ header, subheader, description }) => {
+  alternativeRow: boolean;
+}> = ({ header, subheader, description, alternativeRow }) => {
+  const style = useContentStyles();
+
   return (
     <Grid container direction="column">
-      <Typography>{header}</Typography>
-      <Typography>{subheader}</Typography>
-      <Typography>{description}</Typography>
+      <Typography variant="h6">{header}</Typography>
+      <Typography variant="subtitle1" className={style.subheader}>
+        {subheader}
+      </Typography>
+      <Typography
+        variant="body2"
+        className={alternativeRow ? "" : style.description}
+      >
+        {description}
+      </Typography>
     </Grid>
   );
 };

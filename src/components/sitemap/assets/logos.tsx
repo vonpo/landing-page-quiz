@@ -6,7 +6,7 @@ export const FacebookLogo: FunctionComponent = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="10"
-      height="19"
+      height="36"
       viewBox="0 0 10 19"
     >
       <path
@@ -23,7 +23,7 @@ export const TwitterLogo: FunctionComponent = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="21"
-      height="16"
+      height="36"
       viewBox="0 0 21 16"
     >
       <path
@@ -40,7 +40,7 @@ export const LinkedInLogo: FunctionComponent = () => {
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="20"
-      height="20"
+      height="36"
       viewBox="0 0 20 20"
     >
       <path
