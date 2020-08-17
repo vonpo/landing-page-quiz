@@ -1,5 +1,4 @@
 import { FunctionComponent } from "react";
-import Typography from "@material-ui/core/Typography";
 import * as React from "react";
 import { QuizAnswerType } from "./types";
 import Button from "@material-ui/core/Button";
