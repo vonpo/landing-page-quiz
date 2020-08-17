@@ -52,7 +52,7 @@ export const lightTheme = createMuiTheme({
       h2: {
         lineHeight: "98px",
         fontSize: "82px",
-        fontFamily: "Montserrat",
+        fontFamily: "'Montserrat', sans-serif",
         letterSpacing: 0,
       },
       h3: {
