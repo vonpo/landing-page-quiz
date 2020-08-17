@@ -43,7 +43,7 @@ const useStyles = makeStyles((theme) => ({
     height: 172,
     padding: "40px 0 0 10px",
     [theme.breakpoints.down("sm")]: {
-      height: 172,
+      height: 120,
     },
   },
   content: {
