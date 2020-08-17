@@ -21,14 +21,14 @@ const useStyles = makeStyles((theme) => ({
     maxWidth: 400,
     padding: "162px 0 0 80px",
     [theme.breakpoints.down("xs")]: {
-      padding: "40px 0 40px 40px",
+      padding: "20px 0 20px 20px",
     },
   },
   descriptionContainerAlternative: {
     padding: "162px 80px 0 0",
     textAlign: "right",
     [theme.breakpoints.down("xs")]: {
-      padding: "40px 80px 40px 0",
+      padding: "20px 60px 20px 0",
     },
   },
   index: {
