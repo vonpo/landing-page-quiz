@@ -1,6 +1,9 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 
+/**
+ * i18n can be used for translations.
+ */
 i18n.use(initReactI18next).init({
   resources: {
     en: {
@@ -42,6 +45,10 @@ i18n.use(initReactI18next).init({
           description:
             "There are plenty of reasons why you might be having difficulty in the erection department. We can help you figure out possible reasons why. And prescribe a pill if needed.",
         },
+      },
+      quiz: {
+        next: "next",
+        back: "back",
       },
       header: {
         takeTheQuiz: "TAKE THE QUIZ",

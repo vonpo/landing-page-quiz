@@ -19,6 +19,8 @@ const useStyles = makeStyles((theme) => ({
   },
   descriptionContainer: {
     maxWidth: 400,
+    minHeight: 400,
+
     padding: "162px 0 0 80px",
     [theme.breakpoints.down("xs")]: {
       padding: "20px 0 20px 20px",
@@ -49,8 +51,8 @@ const useStyles = makeStyles((theme) => ({
     left: -451,
     top: 25,
     [theme.breakpoints.down("xs")]: {
-      top: -332,
-      left: -15,
+      top: -360,
+      left: -100,
     },
   },
 }));

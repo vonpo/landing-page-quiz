@@ -37,6 +37,11 @@ export const lightTheme = createMuiTheme({
     },
   },
   overrides: {
+    MuiToolbar: {
+      root: {
+        color: "#fff",
+      },
+    },
     MuiTypography: {
       root: {
         color: "#0c3c3d",

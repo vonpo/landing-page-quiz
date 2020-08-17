@@ -10,6 +10,7 @@ import Grid from "@material-ui/core/Grid";
 import { QuizQuestion } from "./question";
 import { useQuizContext } from "./useQuiz";
 import { Answers, QuizQuestionType } from "./types";
+import { useTranslation } from "react-i18next";
 
 const useStyles = makeStyles((theme) => ({
   question: {
@@ -28,12 +29,18 @@ const useStyles = makeStyles((theme) => ({
   questionRoot: {
     flexGrow: 1,
   },
-  quizRoot: {},
 }));
 
+/**
+ * Renders quiz component.
+ * Can render stepper and summary.
+ *
+ * @param hasStepper
+ * @param renderSummary
+ * @constructor
+ */
 export const Quiz: FunctionComponent<{
   hasStepper?: boolean;
-  onClose?: () => void;
   renderSummary: ({
     questions,
     answers,
@@ -41,7 +48,8 @@ export const Quiz: FunctionComponent<{
     questions: QuizQuestionType[];
     answers: Answers;
   }) => ReactNode;
-}> = ({ onClose, hasStepper, renderSummary }) => {
+}> = ({ hasStepper, renderSummary }) => {
+  const { t } = useTranslation("quiz");
   const styles = useStyles();
   const {
     currentQuestion,
@@ -83,14 +91,14 @@ export const Quiz: FunctionComponent<{
           className={styles.stepper}
           nextButton={
             <Button size="small" onClick={goNext} disabled={!canGoNext}>
-              Next
+              {t("next")}
               <KeyboardArrowRight />
             </Button>
           }
           backButton={
             <Button size="small" onClick={goBack} disabled={!canGoBack}>
               <KeyboardArrowLeft />
-              Back
+              {t("back")}
             </Button>
           }
         />

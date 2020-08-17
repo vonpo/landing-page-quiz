@@ -13,7 +13,7 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 import { Quiz } from "../quiz";
-import { Answers, QuizQuestionType } from "../quiz/types";
+import { QuizQuestionType } from "../quiz/types";
 import { loadQuestions } from "../../assets/quiz";
 import { QuizContext, useQuiz } from "../quiz/useQuiz";
 import { Summary } from "./summary";
@@ -58,6 +58,12 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+/**
+ * Renders page header.
+ * Has quiz button and Quiz component.
+ *
+ * @constructor
+ */
 export const Header: FunctionComponent = () => {
   const styles = useStyles();
   const [isQuizOpen, setQuizOpen] = useState<boolean>(false);
