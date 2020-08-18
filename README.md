@@ -8,6 +8,15 @@
 * Tests(jest)
 * webpack
 
+## Browser
+
+Tested on:
+* chrome (windows)
+* firefox (windows)
+* edge (windows)
+* chrome (android)
+* safari (ipad ios)
+
 ## User story
 As a visitor, I want a landing page and quiz to help me decide if Manual is the correct product
 for me.
@@ -23,4 +32,4 @@ Run this script to run and develop app:
 `npm run test`
 
 ## run prettier
-'npm run prettier'
+`npm run prettier`

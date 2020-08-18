@@ -109,11 +109,12 @@ export const lightTheme = createMuiTheme({
     MuiButton: {
       containedPrimary: {
         height: 48,
+        fontSize: 12,
         borderRadius: 49.5,
-        fontFamily: "'Montserrat'",
+        fontFamily: "Montserrat",
         letterSpacing: "2.4px",
         backgroundColor: primaryColor,
-        padding: "17px 37px 16px 38px",
+        padding: "0 37px",
         boxShadow: "0 10px 30px -20px rgba(0, 0, 0, 0.5)",
         color: "#fff",
       },
