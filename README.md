@@ -23,6 +23,7 @@ for me.
 
 ## run 
 Run this script to run and develop app:
+`npm install`
 `npm start`
 
 ## build
