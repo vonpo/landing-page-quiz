@@ -47,6 +47,9 @@ const useStyles = makeStyles((theme) => ({
       left: -100,
     },
   },
+  image: {
+    maxWidth: "100%",
+  },
   indexAlternative: {
     left: -451,
     top: 25,
@@ -61,7 +64,8 @@ export const SectionWithImage: FunctionComponent<{
   index: number;
   imagePath: string;
   alternativeRow: boolean;
-}> = ({ index, imagePath, children, alternativeRow }) => {
+  srcSet: string;
+}> = ({ index, imagePath, children, alternativeRow, srcSet }) => {
   const styles = useStyles();
 
   return (
@@ -73,7 +77,7 @@ export const SectionWithImage: FunctionComponent<{
       className={styles.sectionContainer}
     >
       <Grid className={styles.imageContainer} item xs={12} sm={6}>
-        <img src={imagePath} />
+        <img src={imagePath} srcSet={srcSet} className={styles.image} />
         <Grid
           className={`${styles.index} ${
             alternativeRow && styles.indexAlternative

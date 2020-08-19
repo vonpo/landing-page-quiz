@@ -6,7 +6,12 @@ import { FunctionComponent } from "react";
 import { useTranslation } from "react-i18next";
 import makeStyles from "@material-ui/core/styles/makeStyles";
 import Section1 from "../assets/section1/hair-photo-1-2-x.png";
+import Section1_2x from "../assets/section1/hair-photo-1-2-x@2x.png";
+import Section1_3x from "../assets/section1/hair-photo-1-2-x@3x.png";
+
 import Section2 from "../assets/section2/sex-photo-1-2-x.png";
+import Section2_2x from "../assets/section2/sex-photo-1-2-x@2x.png";
+import Section2_3x from "../assets/section2/sex-photo-1-2-x@3x.png";
 
 const useStyles = makeStyles((theme) => ({
   sectionHeader: {
@@ -19,10 +24,12 @@ const SECTIONS = [
   {
     name: "section1",
     image: Section1,
+    srcSet: `${Section1} 1x, ${Section1_2x} 2x, ${Section1_3x} 3x`,
   },
   {
     name: "section2",
     image: Section2,
+    srcSet: `${Section2} 1x, ${Section2_2x} 2x, ${Section2_3x} 3x`,
   },
 ];
 
@@ -41,8 +48,9 @@ export const MainContent: FunctionComponent = () => {
       <Typography className={styles.sectionHeader} variant="h4" align="center">
         {t("header")}
       </Typography>
-      {SECTIONS.map(({ name, image }, index) => (
+      {SECTIONS.map(({ name, image, srcSet }, index) => (
         <SectionWithImage
+          srcSet={srcSet}
           key={name}
           index={index + 1}
           imagePath={image}
