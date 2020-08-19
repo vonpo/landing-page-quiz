@@ -1,7 +1,8 @@
 import * as React from "react";
 import { FunctionComponent, useEffect, useState } from "react";
 import makeStyles from "@material-ui/core/styles/makeStyles";
-import Image from "./assets/hair-cat-header.png";
+import imageMd from "./assets/hair-cat-header.png";
+import ImageLg from "./assets/hair-cat-header@2x.png";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
@@ -22,13 +23,18 @@ const useStyles = makeStyles((theme) => ({
   header: {
     paddingLeft: theme.spacing(10),
     minHeight: 680,
-    background: `url(${Image}) bottom right no-repeat #b8e6e3`,
+    background: `url(${imageMd}) bottom right no-repeat #b8e6e3`,
     [theme.breakpoints.down("xs")]: {
       paddingLeft: "20px",
       paddingRight: "20px",
     },
     [theme.breakpoints.down("sm")]: {
       minHeight: 1080,
+    },
+    [theme.breakpoints.up("lg")]: {
+      background: `url(${ImageLg}) bottom right no-repeat #b8e6e3`,
+      minHeight: 1080,
+      backgroundSize: "contain",
     },
   },
   responsiveHeader: {

@@ -24,7 +24,7 @@ export const lightTheme = createMuiTheme({
       xs: 0,
       sm: 800, // redefine small breakpoints as 800px is size when we need to change from row to column <SectionWithImage>
       md: 960,
-      lg: 1280,
+      lg: 1080,
       xl: 1920,
     },
   },
